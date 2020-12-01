@@ -7,9 +7,6 @@ spring:
             issuer-uri: https://login.example.ubidemo.com/uas
         registration:
           ubisecure:
-            clientId: 6864a917-74cc-40fe-914a-87b1c5522633
-            clientSecret: l1gL0fNWPsh5eLX-JsBuFeGQJOdnw-2m
+            clientId: 41081527-13dd-49c3-b8ae-9b1ff5db656b
+            clientSecret: cCmm0k1soIRIv1K3kYxEisvMi1nrYO95
             scope: openid
-logging:
-  level:
-    org.springframework: DEBUG
