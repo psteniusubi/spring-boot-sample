@@ -10,3 +10,7 @@ spring:
             clientId: 41081527-13dd-49c3-b8ae-9b1ff5db656b
             clientSecret: cCmm0k1soIRIv1K3kYxEisvMi1nrYO95
             scope: openid
+server:
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
