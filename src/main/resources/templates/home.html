@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<h1>Welcome!</h1>
+	<dl>
+		<th:block th:each="i : ${principal.attributes}">
+			<dt>
+				<b th:text="${i.key}"></b>
+			</dt>
+			<dd>
+				<i th:text="${i.value}"></i>
+			</dd>
+		</th:block>
+	</dl>
+</body>
+</html>
