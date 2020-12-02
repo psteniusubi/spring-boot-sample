@@ -51,7 +51,7 @@ This application is loosely based on the [Spring Boot starter application](https
 
 ### Application.java
 
-The main `Application` class of
+The main `Application` class of a Spring Boot application
 
 ```java
 @SpringBootApplication
