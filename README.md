@@ -10,7 +10,7 @@ An OpenID Connect Client needs to be configured with information about the OpenI
 
 ### application.yml
 
-This configuration supports two profiles: `default` for local testing and `azure` for deployment on Azure.
+This configuration supports `default` profile for local testing. 
 
 ```yml
 spring:
@@ -23,21 +23,12 @@ spring:
     scope: openid
 server:
   port: 8080
----
+```
 
-spring:
-  config.activate.on-profile: azure
-  security.oauth2.client.provider.ubisecure:
-    issuer-uri: ${OPENIDCONNECT_ISSUER:https://login.example.ubidemo.com/uas}
-  security.oauth2.client.registration.ubisecure:
-    clientId: ${OPENIDCONNECT_CLIENT_ID}
-    clientSecret: ${OPENIDCONNECT_CLIENT_SECRET}
-    scope: ${OPENIDCONNECT_SCOPE:openid}
-server:
-  port: 80
-  tomcat:
-    remote-ip-header: x-forwarded-for
-    protocol-header: x-forwarded-proto
+Replace values for `issuer-uri`, `clientId` and `clientSecret` when integrationg with an other OpenID Connect provider. Value of `redirect_uri` is defined by Spring Boot middleware
+
+```
+http://localhost/login/oauth2/code/ubisecure
 ```
 
 ## Code review
