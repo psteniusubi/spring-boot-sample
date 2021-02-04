@@ -25,7 +25,7 @@ server:
   port: 8080
 ```
 
-Replace values for `issuer-uri`, `clientId` and `clientSecret` when integrationg with an other OpenID Connect provider. Value of `redirect_uri` is defined by Spring Boot middleware
+Replace values for `issuer-uri`, `clientId` and `clientSecret` when integrating with an other OpenID Connect provider. Value of `redirect_uri` is defined by Spring Boot middleware
 
 ```
 http://localhost/login/oauth2/code/ubisecure
