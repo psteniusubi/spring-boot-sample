@@ -60,9 +60,8 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: ubi-spring-boot-sample'
             inputs:
-              azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
+              azureSubscription: 'Azure DevOps'
+              appType: 'webAppLinux'
+              appName: 'ubi-spring-boot-sample'
               package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
