@@ -16,3 +16,5 @@ steps:
     appSourcePath: '$(System.DefaultWorkingDirectory)'
     acrName: 'ubicontainers'
     containerAppName: 'ubi-spring-boot-sample'
+    resourceGroup: 'Default-Web-NorthEurope'
+    containerAppEnvironment: 'ubi-container-env'
