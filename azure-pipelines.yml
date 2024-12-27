@@ -30,6 +30,10 @@ stages:
       vmImage: $(vmImageName)
     
     steps:
+    - task: JavaToolInstaller@1
+      displayName: 'Java'
+      inputs:
+        versionSpec: '21'
     - task: Maven@4
       displayName: 'Maven Package'
       inputs:
