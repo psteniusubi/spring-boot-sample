@@ -25,7 +25,7 @@ server:
   port: 8080
 ```
 
-Replace values for `issuer-uri`, `clientId` and `clientSecret` when integrationg with an other OpenID Connect provider. Value of `redirect_uri` is defined by Spring Boot middleware
+Replace values for `issuer-uri`, `clientId` and `clientSecret` when integrating with an other OpenID Connect provider. Value of `redirect_uri` is defined by Spring Boot middleware
 
 ```
 http://localhost/login/oauth2/code/ubisecure
@@ -55,7 +55,7 @@ public class Application {
 
 ### HomeController.java
 
-This app has a single controller bound to `/`. The purpose of `@RolesAllowed` is to make sure only authenticated users are allowed. `OAuth2User` represents the authenticated user and is passeed as model attribute to `home.html` view.
+This app has a single controller bound to `/`. The purpose of `@RolesAllowed` is to make sure only authenticated users are allowed. `OAuth2User` represents the authenticated user and is passed as model attribute to `home.html` view.
 
 ```java
 @RolesAllowed("ROLE_USER")
@@ -107,7 +107,7 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0</version>
+		<version>3.4.1</version>
 		<relativePath />
 	</parent>
 	<groupId>com.example</groupId>
@@ -115,7 +115,7 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<java.version>8</java.version>
+		<java.version>21</java.version>
 		<exec.mainClass>com.example.springboot.Application</exec.mainClass>
 	</properties>
 
@@ -151,8 +151,8 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<source>21</source>
+					<target>21</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -169,7 +169,7 @@ This application is also deployed live on Azure Web Apps at https://ubi-spring-b
 
 ### Command line
 
-You first need to install [Git tools](https://git-scm.com/downloads), [Java JDK](https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases) and [Apache Maven](https://maven.apache.org/install.html)
+You first need to install [Git tools](https://git-scm.com/downloads), [Java JDK](https://learn.microsoft.com/en-gb/java/openjdk/download#openjdk-21) and [Apache Maven](https://maven.apache.org/install.html)
 
 The following will launch the application on http://localhost:8080
 
