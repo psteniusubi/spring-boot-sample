@@ -12,9 +12,10 @@ pool:
 steps:
 - task: AzureContainerApps@1
   inputs:
-    azureSubscription: 'Azure DevOps'
     appSourcePath: '$(System.DefaultWorkingDirectory)'
+    azureSubscription: 'Azure DevOps'
     acrName: 'ubicontainers'
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
+    location: 'North Europe'
