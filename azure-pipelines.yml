@@ -16,7 +16,7 @@ steps:
     azureSubscription: 'Azure DevOps'
     acrName: 'ubicontainers'
     acrUsername: 'ubicontainers'
-    acrPassword: 'XHd7DcCYL5+xRmQ3izCh2+JGcvIhZeeSYHL1ZOuNA/+ACRAS6/PC'
+    acrPassword: '$(ACR_PASSWORD)'
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
