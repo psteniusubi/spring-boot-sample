@@ -18,4 +18,4 @@ steps:
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
-    location: 'North Europe'
+    location: 'northeurope'
