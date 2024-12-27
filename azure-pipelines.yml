@@ -18,4 +18,6 @@ steps:
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
+    dockerfilePath: 'Dockerfile'
+    ingress: 'external'
     location: 'northeurope'
