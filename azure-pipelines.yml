@@ -34,6 +34,8 @@ stages:
       displayName: 'Java'
       inputs:
         versionSpec: '21'
+        jdkSourceOption: 'PreInstalled'
+        jdkArchitectureOption: 'x64'
     - task: Maven@4
       displayName: 'Maven Package'
       inputs:
