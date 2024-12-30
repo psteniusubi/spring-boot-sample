@@ -17,8 +17,6 @@ steps:
     appSourcePath: '$(System.DefaultWorkingDirectory)'
     azureSubscription: 'Azure DevOps'
     acrName: 'ubicontainers'
-    acrUsername: 'ubicontainers'
-    acrPassword: '$(ACR_PASSWORD)'
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
