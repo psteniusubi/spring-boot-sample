@@ -11,11 +11,13 @@ pool:
 
 steps:
   - task: JavaToolInstaller@1
+    displayName: 'Install Java'
     inputs:
       versionSpec: '21'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
   - task: Maven@4
+    displayName: 'Build'
     inputs:
       azureSubscription: 'Azure DevOps'
       mavenPomFile: 'pom.xml'
@@ -26,3 +28,10 @@ steps:
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
+  - task: AzureWebApp@1
+    displayName: 'Deploy'
+    inputs:
+      azureSubscription: 'Azure DevOps'
+      appType: 'webApp'
+      appName: 'ubi-spring-boot-sample'
+      package: '$(System.DefaultWorkingDirectory)/**/*.war'
