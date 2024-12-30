@@ -10,6 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+  - task: JavaToolInstaller@1
+    inputs:
+      versionSpec: '21'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
   - task: Maven@4
     inputs:
       azureSubscription: 'Azure DevOps'
