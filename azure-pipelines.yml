@@ -20,6 +20,7 @@ steps:
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
+    imageToBuild: ubicontainers.azurecr.io/ubi-spring-boot-sample
     dockerfilePath: 'Dockerfile'
     ingress: 'external'
     location: 'northeurope'
