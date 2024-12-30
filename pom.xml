@@ -12,10 +12,12 @@
 	<groupId>com.example</groupId>
 	<artifactId>spring-boot-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${package}</packaging>
 
 	<properties>
 		<java.version>21</java.version>
 		<exec.mainClass>com.example.springboot.Application</exec.mainClass>
+		<package>jar</package>
 	</properties>
 
 	<dependencies>
@@ -56,5 +58,25 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>azure</id>
+			<properties>
+				<package>war</package>
+				<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+			</properties>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 </project>

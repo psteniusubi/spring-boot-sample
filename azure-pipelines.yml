@@ -19,19 +19,10 @@ steps:
     inputs:
       azureSubscription: 'Azure DevOps'
       mavenPomFile: 'pom.xml'
+      options: '-P azure'
       publishJUnitResults: false
       javaHomeOption: 'JDKVersion'
       mavenVersionOption: 'Default'
       mavenAuthenticateFeed: false
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
-  - task: AzureSpringCloud@0
-    inputs:
-      azureSubscription: 'Azure DevOps'
-      Action: 'Deploy'
-      AzureSpringCloud: 'ubi-spring-boot-sample'
-      AppName: 'ubi-spring-boot-sample'
-      UseStagingDeployment: false
-      CreateNewDeployment: true
-      DeploymentName: default
-      RuntimeVersion: 'Java_21'
