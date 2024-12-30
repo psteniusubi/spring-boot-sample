@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+
 steps:
 - task: AzureContainerApps@1
   inputs:
@@ -20,7 +22,7 @@ steps:
     containerAppName: 'ubi-spring-boot-sample'
     resourceGroup: 'Default-Web-NorthEurope'
     containerAppEnvironment: 'ubi-container-env'
-    imageToBuild: ubicontainers.azurecr.io/ubi-spring-boot-sample
+    imageToBuild: ubicontainers.azurecr.io/ubi-spring-boot-sample:$(Build.BuildId)
     dockerfilePath: 'Dockerfile'
     ingress: 'external'
     location: 'northeurope'
