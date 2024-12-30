@@ -33,4 +33,5 @@ steps:
       AppName: 'ubi-spring-boot-sample'
       UseStagingDeployment: false
       CreateNewDeployment: true
+      DeploymentName: default
       RuntimeVersion: 'Java_21'
