@@ -32,6 +32,7 @@ steps:
     displayName: 'Deploy'
     inputs:
       azureSubscription: 'Azure DevOps'
-      appType: 'webApp'
+      appType: 'webAppLinux'
       appName: 'ubi-spring-boot-sample'
       package: '$(System.DefaultWorkingDirectory)/**/*.war'
+      customDeployFolder: 'ROOT'
