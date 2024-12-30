@@ -10,6 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+  - task: Maven@4
+    inputs:
+      azureSubscription: 'Azure DevOps'
+      mavenPomFile: 'pom.xml'
+      publishJUnitResults: false
+      javaHomeOption: 'JDKVersion'
+      mavenVersionOption: 'Default'
+      mavenAuthenticateFeed: false
+      effectivePomSkip: false
+      sonarQubeRunAnalysis: false
   - task: AzureSpringCloud@0
     inputs:
       azureSubscription: 'Azure DevOps'
