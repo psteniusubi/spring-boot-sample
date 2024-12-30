@@ -9,18 +9,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
-
 steps:
-- task: AzureContainerApps@1
-  inputs:
-    appSourcePath: '$(System.DefaultWorkingDirectory)'
-    azureSubscription: 'Azure DevOps'
-    acrName: 'ubicontainers'
-    containerAppName: 'ubi-spring-boot-sample'
-    resourceGroup: 'Default-Web-NorthEurope'
-    containerAppEnvironment: 'ubi-container-env'
-    imageToBuild: ubicontainers.azurecr.io/ubi-spring-boot-sample:$(Build.BuildId)
-    dockerfilePath: 'Dockerfile'
-    ingress: 'external'
-    location: 'northeurope'
+  - task: AzureSpringCloud@0
+    inputs:
+      azureSubscription: 'Azure DevOps'
+      Action: 'Deploy'
+      AzureSpringCloud: 'ubi-spring-boot-sample'
+      AppName: 'ubi-spring-boot-sample'
+      UseStagingDeployment: true
+      RuntimeVersion: 'Java_21'
