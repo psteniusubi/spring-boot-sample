@@ -31,5 +31,5 @@ steps:
       Action: 'Deploy'
       AzureSpringCloud: 'ubi-spring-boot-sample'
       AppName: 'ubi-spring-boot-sample'
-      UseStagingDeployment: true
+      UseStagingDeployment: false
       RuntimeVersion: 'Java_21'
