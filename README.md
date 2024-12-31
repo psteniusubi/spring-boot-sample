@@ -42,14 +42,18 @@ This application is loosely based on the [Spring Boot starter application](https
 
 ### Application.java
 
-The main `Application` class of a Spring Boot application
+The main `Application` class of a Spring Boot application. The base class `SpringBootServletInitializer` and override of `configure` are needed for deployment into Tomcat.
 
 ```java
 @SpringBootApplication
-public class Application {
+public class Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(Application.class);
+    }
 }
 ```
 
@@ -98,6 +102,8 @@ The `home.html` view creates a list with user claims.
 
 This app is based on `spring-boot-starter-parent` and adds dependencies to `spring-boot-starter-web`, `spring-boot-starter-thymeleaf` and `spring-boot-starter-oauth2-client`.
 
+The profile `azure` is used to override defaults and produces a `war` file for deployment into Tomcat when running as Azure Web App.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -113,10 +119,12 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 	<groupId>com.example</groupId>
 	<artifactId>spring-boot-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${package}</packaging>
 
 	<properties>
 		<java.version>21</java.version>
 		<exec.mainClass>com.example.springboot.Application</exec.mainClass>
+		<package>jar</package>
 	</properties>
 
 	<dependencies>
@@ -158,6 +166,26 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>azure</id>
+			<properties>
+				<package>war</package>
+				<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+			</properties>
+			<build>
+				<finalName>${project.artifactId}</finalName>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
 </project>
 ```
 
@@ -165,7 +193,7 @@ This app is based on `spring-boot-starter-parent` and adds dependencies to `spri
 
 Use your favorite IDE to launch this application on http://localhost:8080
 
-This application is also deployed live on Azure Web Apps at https://ubi-spring-boot-sample.azurewebsites.net
+This application is also deployed live as an Azure Web App at https://ubi-spring-boot-sample.azurewebsites.net
 
 ### Command line
 
